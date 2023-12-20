@@ -2,14 +2,20 @@ const express = require("express");
 const moment = require("moment");
 const fs = require("fs/promises");
 const cors = require("cors");
+const logger = require("morgan");
 
 const reviewsRouter = require("./routes/api/reviews");
 
 const reviews = require("./reviews");
 
 const app = express(); // app -веб-сервер
+const formatsLogger = app.get("env") === "development" ? "dev" : "short";
+
+app.use(logger(formatsLogger));
 
 app.use(cors());
+
+app.use(express.json());
 
 app.use("/api/reviews", reviewsRouter);
 
@@ -37,30 +43,4 @@ app.use((req, res) => {
   });
 });
 
-app.listen(3000, () => console.log("Server running"));
-
-// const fs = require("fs/promises");
-
-// const readText = async () => {
-//   const data = await fs.readFile("./files/file.txt", "utf-8");
-//   console.log(data);
-// };
-
-// readText();
-
-// const addText = async () => {
-//   await fs.appendFile("./files/file.txt", "\nCreate my own backend");
-// };
-
-// // addText();
-
-// const replaceText = async () => {
-//   const result = await fs.writeFile("./files/file.txt", "I love this");
-//   console.log(result);
-// };
-
-// // replaceText();
-
-// const reviews = require("./reviews");
-
-// console.log("reviews", reviews);
+module.exports = app;

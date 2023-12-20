@@ -7,6 +7,7 @@ const reviewsPath = path.join(__dirname, "reviews.json");
 
 const getAllReviews = async () => {
   const data = await fs.readFile(reviewsPath, "utf-8");
+  console.log(data);
   return JSON.parse(data);
 };
 

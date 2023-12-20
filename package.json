@@ -2,12 +2,11 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "app.cjs",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
-    "dev": "nodemon app",
+    "dev": "nodemon ./server.js",
     "app": "nodemon app.cjs"
   },
   "keywords": [],
@@ -17,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "moment": "^2.29.4",
+    "morgan": "^1.10.0",
     "nanoid": "^3.3.4"
   },
   "devDependencies": {
