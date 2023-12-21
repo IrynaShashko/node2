@@ -6,7 +6,7 @@ const logger = require("morgan");
 
 const reviewsRouter = require("./routes/api/reviews");
 
-const reviews = require("./reviews");
+// const reviews = require("./reviews");
 
 const app = express(); // app -веб-сервер
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";

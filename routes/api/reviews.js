@@ -1,10 +1,11 @@
 const express = require("express");
+const router = express.Router();
 
 // const reviews = require("../../reviews.json");
 
 const reviews = require("../../models/reviews");
 
-const router = express.Router();
+console.log(reviews);
 
 router.get("/", async (req, res) => {
   const result = await reviews.getAllReviews();
