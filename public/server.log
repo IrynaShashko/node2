@@ -17,3 +17,11 @@ GET /favicon.ico 21-12-2023_10:29:32
 GET /reviews 21-12-2023_10:42:27
 GET /reviews 21-12-2023_10:44:01
 GET /reviews 21-12-2023_10:48:21
+PUT /api/reviews 21-12-2023_12:24:14
+PUT /api/reviews 21-12-2023_12:24:33
+PUT /api/reviews 21-12-2023_12:25:21
+GET /api 21-12-2023_01:32:37
+GET / 21-12-2023_06:39:55
+GET /favicon.ico 21-12-2023_06:39:55
+GET /reviews 21-12-2023_06:40:13
+GET /reviews 21-12-2023_06:40:22

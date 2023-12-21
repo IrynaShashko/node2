@@ -6,8 +6,6 @@ const logger = require("morgan");
 
 const reviewsRouter = require("./routes/api/reviews");
 
-// const reviews = require("./reviews");
-
 const app = express(); // app -веб-сервер
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
@@ -31,16 +29,15 @@ app.get("/", async (req, res) => {
   res.send("<h2>Homepage</h2>");
 });
 
-app.get("/reviews", (req, res) => {
+app.get("/api/reviews", (req, res) => {
   console.log(req.url);
   console.log(req.method);
   res.json(reviews);
 });
 
-app.use((req, res) => {
-  res.status(404).json({
-    message: "Not found",
-  });
+app.use((err, req, res, next) => {
+  const { status = 500, message = "Server error" } = err;
+  res.status(status).json({ message });
 });
 
 module.exports = app;

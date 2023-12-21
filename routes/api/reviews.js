@@ -1,31 +1,21 @@
 const express = require("express");
+
 const router = express.Router();
 
-// const reviews = require("../../reviews.json");
+const ctrl = require("../../controllers/reviews");
 
-const reviews = require("../../models/reviews");
+const validateBody = require("../../middlewares");
 
-console.log(reviews);
+const schemas = require("../../schemas/reviews");
 
-router.get("/", async (req, res) => {
-  const result = await reviews.getAllReviews();
-  res.json(result);
-});
+router.get("/", ctrl.getAll);
 
-// router.get("/:id", (req, res) => {
-//   res.json(reviews[0]);
-// });
+router.get("/:id", ctrl.getById);
 
-// router.post("/", (req, res) => {
-//   res.json(reviews[0]);
-// });
+router.post("/", validateBody(schemas.addSchema), ctrl.add);
 
-// router.put("/:id", (req, res) => {
-//   res.json(reviews[0]);
-// });
+router.put("/:id", validateBody(schemas.addSchema), ctrl.updateById);
 
-// router.delete("/:id", (req, res) => {
-//   res.json(reviews[0]);
-// });
+router.delete("/:id", ctrl.deleteById);
 
 module.exports = router;

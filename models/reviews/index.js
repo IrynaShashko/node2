@@ -1,19 +1,17 @@
 const fs = require("fs/promises");
 const path = require("path");
 const { nanoid } = require("nanoid");
-const { json } = require("express");
 
 const reviewsPath = path.join(__dirname, "reviews.json");
 
 const getAllReviews = async () => {
   const data = await fs.readFile(reviewsPath, "utf-8");
-  console.log(data);
   return JSON.parse(data);
 };
 
 const getById = async (id) => {
   const reviews = await getAllReviews();
-  const result = reviews.find((item) => item.id === id);
+  const result = reviews.find((item) => item.id === Number(id));
   return result || null;
 };
 
@@ -32,7 +30,7 @@ const add = async (data) => {
 
 const updateById = async (id, data) => {
   const reviews = await getAllReviews();
-  const index = reviews.findIndex((item) => item.id === id);
+  const index = reviews.findIndex((item) => item.id === Number(id));
   if (index === -1) {
     return null;
   }
