@@ -6,16 +6,16 @@ const ctrl = require("../../controllers/reviews");
 
 const validateBody = require("../../middlewares");
 
-const schemas = require("../../schemas/reviews");
+const schemas = require("../../models/reviews");
 
 router.get("/", ctrl.getAll);
 
-router.get("/:id", ctrl.getById);
+// router.get("/:id", ctrl.getById);
 
 router.post("/", validateBody(schemas.addSchema), ctrl.add);
 
-router.put("/:id", validateBody(schemas.addSchema), ctrl.updateById);
+// router.put("/:id", validateBody(schemas.addSchema), ctrl.updateById);
 
-router.delete("/:id", ctrl.deleteById);
+// router.delete("/:id", ctrl.deleteById);
 
 module.exports = router;
