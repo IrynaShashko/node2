@@ -7,14 +7,14 @@ const getAll = async (req, res) => {
   res.json(result);
 };
 
-// const getById = async (req, res) => {
-//   const { id } = req.params;
-//   const result = await reviews.getById(id);
-//   if (!result) {
-//     throw HttpError(404, "Not found");
-//   }
-//   res.json(result);
-// };
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const result = await Review.findOne({ _id: id });
+  if (!result) {
+    throw HttpError(404, "Not found");
+  }
+  res.json(result);
+};
 
 const add = async (req, res) => {
   const result = await Review.create(req.body);
@@ -41,7 +41,7 @@ const add = async (req, res) => {
 
 module.exports = {
   getAll: ctrlWrapper(getAll),
-  // getById: ctrlWrapper(getById),
+  getById: ctrlWrapper(getById),
   add: ctrlWrapper(add),
   // updateById: ctrlWrapper(updateById),
   // deleteById: ctrlWrapper(deleteById),
