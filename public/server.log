@@ -31,3 +31,5 @@ GET /favicon.ico 22-12-2023_11:19:32
 GET /api/reviews/65847b4a84ef5f04fc2662a2 23-12-2023_04:41:25
 POST /api/reviews 23-12-2023_04:58:27
 POST /api/reviews 23-12-2023_04:58:46
+GET / 23-12-2023_10:16:09
+GET /favicon.ico 23-12-2023_10:16:11

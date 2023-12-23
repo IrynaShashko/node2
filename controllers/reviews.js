@@ -17,6 +17,7 @@ const getById = async (req, res) => {
 };
 
 const add = async (req, res) => {
+  console.log(req.body);
   const result = await Review.create(req.body);
   res.status(201).json(result);
 };
